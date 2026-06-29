@@ -5,468 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>SparkleClean Enterprises – Cleaning Solutions for a Brighter Tomorrow</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<link rel="stylesheet" href="styles.css">
 
-  :root {
-    --navy:    #0D1B2E;
-    --blue:    #1565C0;
-    --royal:   #1A6FE8;
-    --electric:#3DA8FF;
-    --white:   #FFFFFF;
-    --offwhite:#F4F8FF;
-    --muted:   #5a7898;
-  }
-
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Poppins', sans-serif; color: var(--navy); background: var(--white); overflow-x: hidden; }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1rem 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    transition: background 0.4s, box-shadow 0.4s;
-  }
-  nav.scrolled { background: var(--navy); box-shadow: 0 2px 24px rgba(0,0,0,0.3); }
-
-  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .logo-img {
-    width: 48px; height: 48px; border-radius: 10px; object-fit: contain;
-    background: var(--navy);
-    border: 2px solid rgba(61,168,255,0.3);
-  }
-  .logo-text { font-size: 1rem; font-weight: 800; color: var(--white); line-height: 1.15; letter-spacing: 0.02em; }
-  .logo-text span { display: block; font-size: 0.68rem; font-weight: 500; color: var(--electric); letter-spacing: 0.08em; }
-
-  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-  .nav-links a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.8); transition: color 0.2s; }
-  .nav-links a:hover { color: var(--electric); }
-  .nav-cta {
-    background: var(--royal); color: var(--white) !important;
-    padding: 0.55rem 1.4rem; border-radius: 50px;
-    transition: transform 0.2s, background 0.2s !important;
-    border: 1px solid rgba(61,168,255,0.4);
-  }
-  .nav-cta:hover { transform: translateY(-2px); background: #1457b8 !important; }
-
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-  .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
-    padding: 7rem 5% 4rem;
-    position: relative; overflow: visible;
-    gap: 3rem;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; top: -10%; left: -10%;
-    width: 70%; height: 120%;
-    background: radial-gradient(ellipse at center, rgba(26,111,232,0.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -20%; right: -5%;
-    width: 50%; height: 80%;
-    background: radial-gradient(ellipse at center, rgba(61,168,255,0.1) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-content { position: relative; z-index: 2; }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(26,111,232,0.2); border: 1px solid rgba(61,168,255,0.3);
-    color: var(--electric); font-size: 0.72rem; font-weight: 600;
-    padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-  }
-  .hero-eyebrow::before { content: '✦'; }
-
-  h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 1.2rem; }
-  h1 em { font-style: normal; color: var(--electric); }
-
-  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 2rem; max-width: 480px; }
-
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--royal); color: var(--white);
-    padding: 0.85rem 2rem; border-radius: 50px;
-    font-weight: 600; font-size: 0.95rem; text-decoration: none;
-    transition: transform 0.2s, background 0.2s, border-color 0.2s;
-    border: 1px solid rgba(61,168,255,0.3);
-  }
-  .btn-primary:hover { transform: translateY(-3px); background: #1457b8; }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 8px;
-    border: 2px solid rgba(255,255,255,0.25); color: var(--white);
-    padding: 0.85rem 2rem; border-radius: 50px;
-    font-weight: 600; font-size: 0.95rem; text-decoration: none;
-    transition: border-color 0.2s, background 0.2s, transform 0.2s;
-  }
-  .btn-secondary:hover { border-color: var(--electric); background: rgba(61,168,255,0.08); transform: translateY(-2px); }
-  .btn-secondary:hover { border-color: var(--electric); background: rgba(61,168,255,0.08); }
-
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-top: 3rem;
-    padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--electric); }
-  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
-
-  .hero-image-slot {
-    position: relative; z-index: 2;
-    border-radius: 24px; overflow: hidden;
-    aspect-ratio: 4/5;
-    background: rgba(26,111,232,0.1);
-    border: none;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 1rem;
-    animation: float 5s ease-in-out infinite;
-  }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-  .hero-image-slot {
-  position: relative; z-index: 2;
-  width: 420px; height: 420px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 6px solid rgba(61,168,255,0.25);
-  box-shadow: 0 0 0 16px rgba(61,168,255,0.07);
-  justify-self: center;
-  align-self: center;
-}
-.hero-image-slot img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-}
-  .placeholder-label {
-    text-align: center; color: rgba(61,168,255,0.7);
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .placeholder-icon { opacity: 0.4; }
-
-  .wave { display: block; width: 100%; line-height: 0;}
-.hero-wave {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  z-index: 3;
-
-}
-
-  section { padding: 5rem 5%; }
-  .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--royal); margin-bottom: 0.6rem; }
-  h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--navy); margin-bottom: 0.8rem; }
-  .section-lead { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 540px; }
-  .center { text-align: center; }
-  .center .section-lead { margin-inline: auto; }
-
-  /* ── SERVICES ── */
-  #services { background: var(--offwhite); }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .service-card {
-    background: var(--white); border-radius: 20px; padding: 2rem;
-    box-shadow: 0 2px 20px rgba(13,27,46,0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
-    opacity: 0; transform: translateY(30px);
-    border: 1px solid rgba(26,111,232,0.08);
-    display: flex; flex-direction: column;
-  }
-  .service-card.visible { animation: fadeUp 0.55s forwards; }
-  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-  .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(26,111,232,0.12); }
-
-  .svc-img {
-    width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;
-    background: rgba(26,111,232,0.07);
-    border: none;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    margin-bottom: 1.2rem; gap: 0.5rem;
-  }
-  .svc-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .svc-img img[src=""] , .svc-img img:not([src]) { display: none; }
-  .svc-img-label { font-size: 0.7rem; color: rgba(26,111,232,0.5); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-
-  .svc-icon {
-    width: 48px; height: 48px; border-radius: 12px;
-    background: linear-gradient(135deg, rgba(26,111,232,0.12), rgba(61,168,255,0.18));
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 0.8rem;
-  }
-  .svc-icon svg { width: 24px; height: 24px; }
-  .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
-  .service-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
-
-  /* ── READ MORE BUTTON ── */
-  .svc-card-body { flex: 1; display: flex; flex-direction: column; }
-  .svc-card-body p { flex: 1; }
-  .read-more-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-top: 1.2rem;
-    background: none;
-    border: 1.5px solid rgba(26,111,232,0.25);
-    color: var(--royal);
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem; font-weight: 600;
-    padding: 0.5rem 1.1rem; border-radius: 50px;
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
-    align-self: flex-start;
-  }
-  .read-more-btn:hover {
-    background: var(--royal); color: var(--white);
-    border-color: var(--royal); transform: translateY(-1px);
-  }
-  .read-more-btn svg { transition: transform 0.2s; }
-  .read-more-btn:hover svg { transform: translateX(3px); }
-
-  /* ── MODAL OVERLAY ── */
-  .modal-overlay {
-    position: fixed; inset: 0; z-index: 200;
-    background: rgba(13,27,46,0.72);
-    backdrop-filter: blur(6px);
-    display: flex; align-items: center; justify-content: center;
-    padding: 1.5rem;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.25s ease;
-  }
-  .modal-overlay.open { opacity: 1; pointer-events: all; }
-
-  .modal {
-    background: var(--white);
-    border-radius: 24px;
-    padding: 2.5rem;
-    max-width: 640px; width: 100%;
-    max-height: 85vh;
-    overflow-y: auto;
-    position: relative;
-    transform: translateY(24px) scale(0.97);
-    transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
-    box-shadow: 0 32px 80px rgba(13,27,46,0.25);
-  }
-  .modal-overlay.open .modal { transform: translateY(0) scale(1); }
-
-  .modal-header {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 1rem; margin-bottom: 1.5rem;
-    padding-bottom: 1.2rem;
-    border-bottom: 1px solid rgba(26,111,232,0.1);
-  }
-  .modal-header-left { display: flex; flex-direction: column; gap: 4px; }
-  .modal-eyebrow {
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--royal);
-  }
-  .modal-title { font-size: 1.25rem; font-weight: 800; color: var(--navy); }
-
-  .modal-close {
-    background: rgba(26,111,232,0.07); border: none; cursor: pointer;
-    width: 36px; height: 36px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--muted); flex-shrink: 0;
-    transition: background 0.2s, color 0.2s;
-  }
-  .modal-close:hover { background: var(--royal); color: var(--white); }
-
-  .modal-desc {
-    font-size: 0.875rem; color: var(--muted); line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Product list grid */
-  .product-list-label {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--royal);
-    margin-bottom: 0.75rem;
-  }
-  .product-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.45rem 1rem;
-    margin-bottom: 1.8rem;
-  }
-  .product-item {
-    display: flex; align-items: flex-start; gap: 8px;
-    font-size: 0.8rem; color: var(--navy); line-height: 1.45;
-    padding: 0.55rem 0.75rem;
-    background: var(--offwhite);
-    border-radius: 8px;
-    border: 1px solid rgba(26,111,232,0.07);
-    transition: border-color 0.15s, background 0.15s;
-  }
-  .product-item:hover { border-color: rgba(26,111,232,0.22); background: rgba(26,111,232,0.04); }
- .product-dot {
-  min-width: 22px; height: 22px; border-radius: 50%;
-  background: var(--royal); color: #fff;
-  font-size: 0.65rem; font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 1px; flex-shrink: 0;
-}
-
-  .modal-cta {
-    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-    padding-top: 1.2rem;
-    border-top: 1px solid rgba(26,111,232,0.08);
-  }
-  .modal-cta p { font-size: 0.82rem; color: var(--muted); flex: 1; min-width: 180px; }
-  .modal-cta a {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--royal); color: var(--white);
-    padding: 0.6rem 1.4rem; border-radius: 50px;
-    font-size: 0.82rem; font-weight: 600; text-decoration: none;
-    transition: transform 0.2s, background 0.2s;
-    white-space: nowrap;
-  }
-  .modal-cta a:hover { transform: translateY(-2px); background: #1457b8; }
-
-  /* Scrollbar for modal */
-  .modal::-webkit-scrollbar { width: 5px; }
-  .modal::-webkit-scrollbar-track { background: transparent; }
-  .modal::-webkit-scrollbar-thumb { background: rgba(26,111,232,0.2); border-radius: 3px; }
-
-  /* ── ABOUT ── */
-  #about { background: var(--white); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-
-  .about-img-slot {
-    position: relative;
-    border-radius: 24px; overflow: visible;
-  }
-  .about-img-box {
-    border-radius: 24px; overflow: hidden;
-    background: rgba(26,111,232,0.07);
-    border: none;
-    aspect-ratio: 4/5;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 1rem;
-  }
-  .about-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .about-badge {
-    position: absolute; bottom: -1.5rem; right: -1.5rem;
-    background: var(--royal); color: var(--white);
-    border-radius: 16px; padding: 1.2rem 1.5rem;
-    box-shadow: 0 8px 28px rgba(26,111,232,0.4); text-align: center;
-  }
-  .about-badge strong { display: block; font-size: 1.8rem; font-weight: 800; }
-  .about-badge span { font-size: 0.75rem; opacity: 0.85; }
-  .about-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
-  .about-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--muted); }
-  .check {
-    min-width: 22px; height: 22px; border-radius: 50%;
-    background: var(--royal); color: var(--white);
-    font-size: 0.65rem; font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 1px; flex-shrink: 0;
-  }
-
-  /* ── COVERAGE ── */
-  #coverage { background: var(--navy); }
-  #coverage h2 { color: var(--white); }
-  #coverage .section-eyebrow { color: var(--electric); }
-  #coverage .section-lead { color: rgba(255,255,255,0.55); }
-  .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 1rem; margin-top: 3rem; }
-  .coverage-card {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(61,168,255,0.15);
-    border-radius: 16px; padding: 1.5rem; text-align: center;
-    transition: background 0.3s, transform 0.3s;
-    opacity: 0; transform: translateY(20px);
-  }
-  .coverage-card.visible { animation: fadeUp 0.5s forwards; }
-  .coverage-card:hover { background: rgba(26,111,232,0.15); transform: translateY(-4px); }
-  .coverage-card svg { width: 32px; height: 32px; margin-bottom: 0.7rem; }
-  .coverage-card h4 { color: var(--white); font-size: 0.92rem; font-weight: 600; }
-  .coverage-card p { color: rgba(255,255,255,0.45); font-size: 0.75rem; margin-top: 3px; }
-
-  /* ── WHY US ── */
-  #why { background: var(--offwhite); }
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .why-card {
-    background: var(--white); border-radius: 20px; padding: 2rem;
-    box-shadow: 0 2px 16px rgba(13,27,46,0.06);
-    transition: transform 0.3s;
-    opacity: 0; transform: translateY(30px);
-    border-top: 3px solid var(--royal);
-  }
-  .why-card.visible { animation: fadeUp 0.5s forwards; }
-  .why-card:hover { transform: translateY(-4px); }
-  .why-num { font-size: 2.4rem; font-weight: 800; color: rgba(0, 0, 0, 0.12); line-height: 1; margin-bottom: 0.5rem; }
-  .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
-  .why-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
-
-  /* ── CTA BAND ── */
-  .cta-band {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--royal) 60%, var(--electric) 100%);
-    padding: 5rem 5%; text-align: center;
-  }
-  .cta-band h2 { color: var(--white); margin-bottom: 0.8rem; }
-  .cta-band p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 2rem; }
-  .btn-white {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--white); color: var(--royal);
-    padding: 0.9rem 2.4rem; border-radius: 50px;
-    font-weight: 700; font-size: 1rem; text-decoration: none;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .btn-white:hover { transform: translateY(-3px); background: #f3f7ff; }
-  .cta-contacts { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
-  .cta-contact { color: rgba(255,255,255,0.88); font-size: 0.88rem; display: flex; align-items: center; gap: 6px; }
-
-  /* ── FOOTER ── */
-  footer { background: var(--navy); color: var(--white); padding: 4rem 5% 2rem; border-top: 1px solid rgba(61,168,255,0.1); }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-  .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.75; margin-top: 1rem; }
-  .footer-col h4 { font-size: 0.78rem; font-weight: 700; color: var(--electric); margin-bottom: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-  .footer-col ul li a:hover { color: var(--electric); }
-  .footer-col address { font-style: normal; color: rgba(255,255,255,0.55); font-size: 0.85rem; line-height: 1.9; }
-  .footer-col address a { color: rgba(255,255,255,0.55); text-decoration: none; }
-  .footer-col address a:hover { color: var(--electric); }
-  .socials { display: flex; gap: 0.7rem; margin-top: 1.2rem; }
-  .social-link {
-    width: 38px; height: 38px; border-radius: 10px;
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(61,168,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s, transform 0.2s; text-decoration: none;
-  }
-  .social-link:hover { background: var(--royal); transform: translateY(-3px); }
-  .social-link svg { width: 17px; height: 17px; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-  .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.78rem; }
-
-  .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  .ph-icon { color: rgba(26,111,232,0.3); }
-
-  /* ── MOBILE ── */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding-top: 6rem; }
-    .hero-image-slot {
-  width: 260px; height: 260px;
-  justify-self: center;
-}
-    .about-grid { grid-template-columns: 1fr; gap: 4rem; }
-    .about-badge { bottom: 1rem; right: 1rem; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: var(--navy); padding: 2rem; gap: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border-top: 1px solid rgba(61,168,255,0.15); }
-    .nav-links.open { display: flex; }
-    .hamburger { display: flex; }
-    .product-grid { grid-template-columns: 1fr; }
-    .modal { padding: 1.8rem; }
-  }
-  @media (max-width: 600px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    .hero-stats { gap: 1.5rem; }
-    .cta-contacts { flex-direction: column; align-items: center; gap: 0.8rem; }
-  }
-</style>
 </head>
 <body>
 
@@ -495,17 +35,14 @@
 <!-- ═══════════════ NAV ═══════════════ -->
 <nav id="nav">
   <a href="#" class="logo">
-    <img src="logo.png" alt="SparkleClean Enterprises Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
-    <div style="display:none; width:48px; height:48px; border-radius:10px; background:rgba(61,168,255,0.15); border:2px solid rgba(61,168,255,0.3); align-items:center; justify-content:center;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg>
-    </div>
-    <div class="logo-text">SparkleClean<span>Enterprises</span></div>
+    <img src="images/logo.png" alt="SparkleClean Enterprises Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+   </div>
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#coverage">Coverage</a></li>
-    <li><a href="#why">Why Us</a></li>
+    <li><a href="coverage.html">Coverage</a></li>
+    <li><a href="coverage.html#why">Why Us</a></li>
     <li><a href="#contact" class="nav-cta">Get a Quote →</a></li>
   </ul>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -515,7 +52,9 @@
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-eyebrow">Zastron · Xhariep District</div>
+    <div class="hero-divider">
+      <span>Zastron · Xhariep District</span>
+    </div>
     <h1>Cleaning Solutions<br>for a <em>Brighter Tomorrow</em></h1>
     <p class="hero-sub">Supplying schools, companies, and government sectors with premium cleaning materials, amenities, stationery, water, and mobile car wash services across the Xhariep District.</p>
     <div class="hero-btns">
@@ -529,7 +68,7 @@
     </div>
   </div>
 <div class="hero-image-slot">
-  <img src="hero.jpg" alt="SparkleClean team at work" />
+  <img src="images/hero.jpg" alt="SparkleClean team at work" />
 </div>
 
 
@@ -556,7 +95,7 @@
     <!-- SERVICE 1 – Cleaning Materials & Equipment -->
     <div class="service-card" data-modal="cleaning">
       <div class="svc-img">
-        <img src="cleaning_material.jpeg" alt="Cleaning materials and equipment"/>
+        <img src="images/cleaning_material.jpeg" alt="Cleaning materials and equipment"/>
       </div>
       <div class="svc-card-body">
         <h3>Cleaning Materials & Equipment</h3>
@@ -571,7 +110,7 @@
     <!-- SERVICE 2 – Stationery -->
     <div class="service-card" data-modal="stationery">
       <div class="svc-img">
-        <img src="stationary.jpg" alt="Stationery and office supplies"/>
+        <img src="images/stationery.jpg" alt="Stationery and office supplies"/>
       </div>
       <div class="svc-card-body">
         <h3>Stationery & Office Supplies</h3>
@@ -586,7 +125,7 @@
     <!-- SERVICE 3 – Toilet Paper & Sanitary -->
     <div class="service-card" data-modal="sanitary">
       <div class="svc-img">
-        <img src="toilet_paper.jpg" alt="Toilet paper and sanitary products"/>
+        <img src="images/toilet_paper.jpg" alt="Toilet paper and sanitary products"/>
       </div>
       <div class="svc-card-body">
         <h3>Toilet Paper & Sanitary Products</h3>
@@ -601,7 +140,7 @@
     <!-- SERVICE 4 – Amenities -->
     <div class="service-card" data-modal="amenities">
       <div class="svc-img">
-        <img src="amenities.jpg" alt="Amenities supply"/>
+        <img src="images/amenities.jpg" alt="Amenities supply"/>
       </div>
       <div class="svc-card-body">
         <h3>Amenities Supply</h3>
@@ -616,7 +155,7 @@
     <!-- SERVICE 5 – Water Supply -->
     <div class="service-card">
       <div class="svc-img">
-        <img src="water.png" alt="Water supply services"/>
+        <img src="images/water.png" alt="Water supply services"/>
       </div>
       <div class="svc-card-body">
         <h3>Water Supply Services</h3>
@@ -629,7 +168,7 @@
     <!-- SERVICE 6 – Mobile Car Wash -->
     <div class="service-card">
       <div class="svc-img">
-        <img src="car_wash.jpg" alt="Mobile car wash"/>
+        <img src="images/car_wash.jpg" alt="Mobile car wash"/>
       </div>
       <div class="svc-card-body">
         <h3>Mobile Car Wash</h3>
@@ -652,17 +191,15 @@
 <!-- ═══════════════ ABOUT ═══════════════ -->
 <section id="about">
   <div class="about-grid">
-    <!--<div class="about-img-slot fade-up">
+    <div class="about-img-slot fade-up">
       <div class="about-img-box">
-        <img src="YOUR_ABOUT_IMAGE_HERE.jpg" alt="SparkleClean team"/>
-        <svg class="ph-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <div class="placeholder-label" style="color:rgba(26,111,232,0.45);">About / Team Photo<br><span style="font-weight:400;opacity:0.7;">Recommended: 800×1000px</span></div>
-      </div>
+        <img src="images/CEO.jpeg" alt="SparkleClean CEO"/>
+        </div>
       <div class="about-badge">
         <strong>2025</strong>
         <span>Est. Zastron</span>
       </div>
-    </div> -->
+    </div> 
     <div class="fade-up">
       <p class="section-eyebrow">About Us</p>
       <h2>Your Local Cleaning Partner in Xhariep</h2>
@@ -677,54 +214,6 @@
       </ul>
       <a href="#contact" class="btn-primary" style="margin-top:2rem; display:inline-flex;">Contact Us →</a>
     </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════ COVERAGE ═══════════════ -->
-<section id="coverage">
-  <div class="center fade-up">
-    <p class="section-eyebrow">Service Area</p>
-    <h2>Where We Operate</h2>
-    <p class="section-lead">Proudly serving the Xhariep District and surrounding towns with timely deliveries and dependable service.</p>
-  </div>
-  <div class="coverage-grid">
-    <div class="coverage-card">
-      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
-      <h4>Zastron</h4><p>HQ & Base</p>
-    </div>
-    <div class="coverage-card">
-      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
-      <h4>Sterkspruit</h4><p>Regular Delivery</p>
-    </div>
-    <div class="coverage-card">
-      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
-      <h4>Queenstown</h4><p>Regular Delivery</p>
-    </div>
-    <div class="coverage-card">
-      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
-      <h4>Aliwal North</h4><p>Regular Delivery</p>
-    </div>
-    <div class="coverage-card">
-      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
-      <h4>Xhariep District</h4><p>Full Coverage</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════ WHY US ═══════════════ -->
-<section id="why">
-  <div class="center fade-up">
-    <p class="section-eyebrow">Why Choose Us</p>
-    <h2>The SparkleClean Difference</h2>
-    <p class="section-lead">We're not just a supplier — we're your long-term operational partner in the district.</p>
-  </div>
-  <div class="why-grid">
-    <div class="why-card"><div class="why-num">01</div><h3>Local Presence</h3><p>Based in Zastron, we know the district, the roads, and the needs of local institutions — no middlemen, no delays.</p></div>
-    <div class="why-card"><div class="why-num">02</div><h3>Faster Response</h3><p>Emergency stock replenishment and same-week delivery across the Xhariep District — when you need it, we deliver.</p></div>
-    <div class="why-card"><div class="why-num">03</div><h3>Tender Ready</h3><p>Structured for government and public sector contracts with full compliance documentation and competitive pricing.</p></div>
-    <div class="why-card"><div class="why-num">04</div><h3>Tailored Solutions</h3><p>Every client is different — we customise supply packages for schools, clinics, offices, and government facilities.</p></div>
   </div>
 </section>
 
@@ -757,7 +246,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="#" class="logo">
-        <img src="logo.png" alt="SparkleClean" class="logo-img" onerror="this.style.display='none'"/>
+        <img src="images/logo.png" alt="SparkleClean" class="logo-img" onerror="this.style.display='none'"/>
         <div class="logo-text">SparkleClean<span>Enterprises</span></div>
       </a>
       <p>Cleaning Solutions for a Brighter Tomorrow. Proudly serving the Xhariep District with quality supplies and personalised service since 2025.</p>
@@ -801,160 +290,6 @@
     <p>Zastron · Sterkspruit · Queenstown · Aliwal North · Xhariep</p>
   </div>
 </footer>
-
-
-<script>
-  // ── Modal data ──
-  const modalData = {
-    cleaning: {
-      eyebrow: 'Cleaning Materials & Equipment',
-      title: 'Full Product Range',
-      desc: 'We stock a comprehensive range of industrial and commercial cleaning equipment and protective gear — suitable for schools, government offices, healthcare facilities, and corporate environments.',
-      products: [
-        'Elbow Pump Wall-Mounted',
-        'InfectiGuard Auto Urinal Dispenser',
-        'Digital Inline Kit 360ml',
-        'Bucket 8L Blue',
-        'Soap Dispenser 1.2L',
-        'Grass Broom with Handle',
-        'Rake Metal (Yellow)',
-        'Whiska Broom with Metal Handle',
-        'Blue Scrub Long Handle Hard White',
-        'Broom Deluxe Wooden Handle & Head',
-        'Platform Broom Hard 300mm',
-        'Toilet Brush Set Round Grey Plastic',
-        'Body Brush Premium White',
-        'Prism Conti Suit Reflective (Chest 36 / Waist 32)',
-        'Wipe Stand Floor',
-        'Wall Stand S/Steel',
-        'Hand Dryer 2.3KW S/Steel',
-        'Refuse Bag Black 80Mic 2X-HD 5×20\'s 750×950',
-      ]
-    },
-    stationery: {
-  eyebrow: 'Stationery & Office Supplies',
-  title: 'Full Product Range',
-  desc: 'Bulk office essentials and school stationery for corporate procurement, institutions, and schools — always available, competitively priced, and delivered on time.',
-  products: [
-    'Mondi Rotatrim A4 Copy Paper 80g',
-    'Typek A4 Copy Paper 80g White',
-    'Bantex Lever Arch File A4 Board',
-    'Croxley Hardcover Manuscript Book 2 Quire',
-    'Pilot G2 Gel Ink Pen Black Fine',
-    'Bic Cristal Medium Ballpoint Pen Blue 50s',
-    'Pritt Glue Stick Jumbo 43g',
-    'Pentel Maxiflo Whiteboard Marker Bullet',
-    'Trex Stationery Scissor 210mm',
-    '(Bulk corporate and school orders welcome)',
-  ]
-},
-
-    sanitary: {
-      eyebrow: 'Toilet Paper & Sanitary Products',
-      title: 'Full Product Range',
-      desc: 'Bulk sanitary supplies for institutions, clinics, schools, and commercial facilities — always available, competitively priced, and delivered on time.',
-      products: [
-        'Toilet Roll Holder 3 Rolls S/Steel',
-        'Toilet Roll Holder 3s Premium White',
-        'Toilet Roll Holder 2 Rolls White',
-        'Decca Toilet Tissue Dispenser',
-        'Twinsaver Platform (Toilet Tissue)',
-        'Sanitary Bag Dispenser',
-        'Sanitary Bag Refills 100s SO4 SP 500s',
-        'Sanitary Towel Bin Large S/Steel',
-        'Refuse Bag Black 80Mic 2X-HD 5×20\'s',
-        '(Bulk toilet roll orders welcome)',
-      ]
-    },
-        amenities: {
-      eyebrow: 'Bathroom Amenities',
-      title: 'Luxury Guest Toiletry Collection',
-      desc: 'Premium guest hospitality packages featuring elegant personal care items and curated bath formulas. A complete set of premium liquids, boxed dry essentials, and bath treatments for an upscale bathroom experience.',
-      products: [
-        'Vitalising Shampoo ',
-        'Comfort Shower Gel )',
-        'Relaxing Bath Salts ',
-        'Foaming Body Lotion',
-        'Wrapped Pleated Body Soap',
-        'Face Towel',
-        'Shaving Kit',
-        'Shower Cap',
-        'Vanity Pack',
-        '(Custom luxury amenity kits available on request)',
-      ]
-    }
-
-  };
-
-  // ── Modal logic ──
-  const overlay = document.getElementById('modalOverlay');
-  const modalClose = document.getElementById('modalClose');
-
-  function openModal(key) {
-    const d = modalData[key];
-    if (!d) return;
-
-    document.getElementById('modalEyebrow').textContent = d.eyebrow;
-    document.getElementById('modalTitle').textContent = d.title;
-    document.getElementById('modalDesc').textContent = d.desc;
-
-    const grid = document.getElementById('modalProductGrid');
-    grid.innerHTML = d.products.map(p =>
-      `<div class="product-item"><span class="product-dot">✓</span><span>${p}</span></div>`
-    ).join('');
-
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  modalClose.addEventListener('click', closeModal);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-  // Close modal and smooth scroll to contact when CTA clicked
-  document.getElementById('modalCtaLink').addEventListener('click', () => closeModal());
-
-  // ── Sticky nav ──
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // ── Mobile menu ──
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-  document.querySelectorAll('#navLinks a').forEach(a =>
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
-  );
-
-  // ── Scroll reveal ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const siblings = el.parentNode.querySelectorAll('.service-card, .coverage-card, .why-card');
-      const idx = Array.from(siblings).indexOf(el);
-      const delay = idx >= 0 ? idx * 110 : 0;
-      setTimeout(() => el.classList.add('visible'), delay);
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-up, .service-card, .coverage-card, .why-card').forEach(el => observer.observe(el));
-
-  // ── Smooth scroll ──
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    });
-  });
-</script>
+<script src="script.js"></script>
 </body>
 </html>

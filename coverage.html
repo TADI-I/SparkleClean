@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SparkleClean Enterprises – Cleaning Solutions for a Brighter Tomorrow</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<!-- ═══════════════ MODAL OVERLAY ═══════════════ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <p class="modal-eyebrow" id="modalEyebrow">Service Details</p>
+        <h3 class="modal-title" id="modalTitle">Loading…</h3>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <p class="product-list-label" id="modalProductLabel">Products Available</p>
+    <div class="product-grid" id="modalProductGrid"></div>
+    <div class="modal-cta">
+      <p>Need a custom quote or bulk order? We'll match your requirements.</p>
+      <a href="#contact" id="modalCtaLink">Get a Quote →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <img src="images/logo.png" alt="SparkleClean Enterprises Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+   </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="coverage.html">Coverage</a></li>
+    <li><a href="coverage.html#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote →</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+
+<!-- ═══════════════ COVERAGE ═══════════════ -->
+<section id="coverage">
+  <div class="center fade-up">
+    <p class="section-eyebrow">Service Area</p>
+    <h2>Where We Operate</h2>
+    <p class="section-lead">Proudly serving the Xhariep District and surrounding towns with timely deliveries and dependable service.</p>
+  </div>
+  <div class="coverage-grid">
+    <div class="coverage-card">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
+      <h4>Zastron</h4><p>HQ & Base</p>
+    </div>
+    <div class="coverage-card">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
+      <h4>Sterkspruit</h4><p>Regular Delivery</p>
+    </div>
+    <div class="coverage-card">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
+      <h4>Queenstown</h4><p>Regular Delivery</p>
+    </div>
+    <div class="coverage-card">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
+      <h4>Aliwal North</h4><p>Regular Delivery</p>
+    </div>
+    <div class="coverage-card">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#3DA8FF" stroke-width="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C10.5 3 6 7.5 6 13c0 8 10 16 10 16s10-8 10-16c0-5.5-4.5-10-10-10z" fill="rgba(61,168,255,0.12)"/><circle cx="16" cy="13" r="3.5"/></svg>
+      <h4>Xhariep District</h4><p>Full Coverage</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ WHY US ═══════════════ -->
+<section id="why">
+  <div class="center fade-up">
+    <p class="section-eyebrow">Why Choose Us</p>
+    <h2>The SparkleClean Difference</h2>
+    <p class="section-lead">We're not just a supplier — we're your long-term operational partner in the district.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-num">01</div><h3>Local Presence</h3><p>Based in Zastron, we know the district, the roads, and the needs of local institutions — no middlemen, no delays.</p></div>
+    <div class="why-card"><div class="why-num">02</div><h3>Faster Response</h3><p>Emergency stock replenishment and same-week delivery across the Xhariep District — when you need it, we deliver.</p></div>
+    <div class="why-card"><div class="why-num">03</div><h3>Tender Ready</h3><p>Structured for government and public sector contracts with full compliance documentation and competitive pricing.</p></div>
+    <div class="why-card"><div class="why-num">04</div><h3>Tailored Solutions</h3><p>Every client is different — we customise supply packages for schools, clinics, offices, and government facilities.</p></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ CTA BAND ═══════════════ -->
+<div class="cta-band" id="contact">
+  <h2>Ready to Keep Your Premises Spotless?</h2>
+  <p>Get in touch for a free quote tailored to your organisation's needs.</p>
+  <a href="mailto:mjmorobi@gmail.com" class="btn-white">      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+ Send Us an Email →</a>
+  <div class="cta-contacts">
+    <div class="cta-contact">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      060 778 9340
+    </div>
+    <div class="cta-contact">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      mjmorobi@gmail.com
+    </div>
+    <div class="cta-contact">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      752 Kanana, Zastron, 9950
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="SparkleClean" class="logo-img" onerror="this.style.display='none'"/>
+        <div class="logo-text">SparkleClean<span>Enterprises</span></div>
+      </a>
+      <p>Cleaning Solutions for a Brighter Tomorrow. Proudly serving the Xhariep District with quality supplies and personalised service since 2025.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/sparklecleansa/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588745623672" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://wa.me/27607789340" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Cleaning Materials</a></li>
+        <li><a href="#services">Stationery</a></li>
+        <li><a href="#services">Toilet Paper & Amenities</a></li>
+        <li><a href="#services">Water Supply</a></li>
+        <li><a href="#services">Mobile Car Wash</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <address>
+        752 Kanana, Zastron<br>
+        9950, Free State<br><br>
+        <a href="tel:+27607789340">060 778 9340</a><br>
+        <a href="mailto:mjmorobi@gmail.com">mjmorobi@gmail.com</a>
+      </address>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 SparkleClean Enterprises. All rights reserved.</p>
+    <p>Zastron · Sterkspruit · Queenstown · Aliwal North · Xhariep</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
