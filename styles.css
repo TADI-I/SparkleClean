@@ -133,7 +133,8 @@
   .hero-image-slot {
     position: relative; z-index: 2;
     border-radius: 24px; overflow: hidden;
-    aspect-ratio: 4/5;
+    aspect-ratio: 4
+    /5;
     background: rgba(26,111,232,0.1);
     border: none;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -143,7 +144,7 @@
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
   .hero-image-slot {
   position: relative; z-index: 2;
-  width: 420px; height: 420px;
+  width: 600px; height: 600px;
   border-radius: 50%;
   overflow: hidden;
   border: 6px solid rgba(61,168,255,0.25);
@@ -172,11 +173,7 @@
 }
 
   section { padding: 5rem 5%; }
-.section-eyebrow {
-  font-size: 0.72rem;
-  color: var(--royal);
-  margin-bottom: 0.8rem;
-}
+  .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--royal); margin-bottom: 0.6rem; }
   h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--navy); margin-bottom: 0.8rem; }
   .section-lead { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 540px; }
   .center { text-align: center; }
@@ -275,11 +272,9 @@
   }
   .modal-header-left { display: flex; flex-direction: column; gap: 4px; }
   .modal-eyebrow {
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  color: var(--royal);
-  margin-bottom: 0.6rem;
-}
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--royal);
+  }
   .modal-title { font-size: 1.25rem; font-weight: 800; color: var(--navy); }
 
   .modal-close {

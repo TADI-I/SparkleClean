@@ -6,7 +6,6 @@
 <title>SparkleClean Enterprises – Cleaning Solutions for a Brighter Tomorrow</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
 
@@ -36,7 +35,7 @@
 <nav id="nav">
   <a href="#" class="logo">
     <img src="images/logo.png" alt="SparkleClean Enterprises Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
-   </div>
+    <div class="logo-text" style="display:none">SparkleClean<span>Enterprises</span></div>
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#services">Services</a></li>
@@ -51,6 +50,37 @@
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero" id="home">
+
+  <!-- Hidden SVG defs for the clip path -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <!--
+        Clip path in objectBoundingBox units (0–1).
+        Image column is ~55% of viewport. The curve mimics the yellow line:
+        starts at top ~88% across, bows LEFT to ~72% in the middle, 
+        then swings back to ~80% at the bottom — a gentle S-curve.
+      -->
+      <clipPath id="heroImgClip" clipPathUnits="objectBoundingBox">
+        <path d="
+          M 0,0
+          L 0.88,0
+          C 0.78,0.12  0.68,0.28  0.72,0.50
+          C 0.76,0.72  0.84,0.86  0.80,1.0
+          L 0,1
+          Z
+        "/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Left: image column -->
+  <div class="hero-image-slot">
+    <img src="images/hero.jpg" alt="SparkleClean team at work" class="hero-img-clipped"/>
+    <!-- Gradient blend overlay — sits on top of the clipped image, feathers the edge -->
+    <div class="hero-blend-overlay"></div>
+  </div>
+
+  <!-- Right: content column -->
   <div class="hero-content">
     <div class="hero-divider">
       <span>Zastron · Xhariep District</span>
@@ -67,17 +97,11 @@
       <div><div class="stat-num">R1.2M</div><div class="stat-label">Year 1 Target</div></div>
     </div>
   </div>
-<div class="hero-image-slot">
-  <img src="images/hero.jpg" alt="SparkleClean team at work" />
-</div>
 
-
-<!-- WAVE INSIDE HERO -->
-<svg class="hero-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-  <path 
-    d="M0,30 C200,100 400,120 600,90 C800,60 1000,20 1200,50 C1320,68 1390,110 1440,120 L1440,140 L0,140 Z" 
-    fill="#F4F8FF"/>
-</svg>
+  <!-- Wave at bottom of hero -->
+  <svg class="hero-wave" viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C200,100 400,120 600,90 C800,60 1000,20 1200,50 C1320,68 1390,110 1440,120 L1440,140 L0,140 Z" fill="#F4F8FF"/>
+  </svg>
 
 </section>
 
@@ -92,7 +116,6 @@
 
   <div class="services-grid">
 
-    <!-- SERVICE 1 – Cleaning Materials & Equipment -->
     <div class="service-card" data-modal="cleaning">
       <div class="svc-img">
         <img src="images/cleaning_material.jpeg" alt="Cleaning materials and equipment"/>
@@ -107,7 +130,6 @@
       </div>
     </div>
 
-    <!-- SERVICE 2 – Stationery -->
     <div class="service-card" data-modal="stationery">
       <div class="svc-img">
         <img src="images/stationery.jpg" alt="Stationery and office supplies"/>
@@ -122,7 +144,6 @@
       </div>
     </div>
 
-    <!-- SERVICE 3 – Toilet Paper & Sanitary -->
     <div class="service-card" data-modal="sanitary">
       <div class="svc-img">
         <img src="images/toilet_paper.jpg" alt="Toilet paper and sanitary products"/>
@@ -137,7 +158,6 @@
       </div>
     </div>
 
-    <!-- SERVICE 4 – Amenities -->
     <div class="service-card" data-modal="amenities">
       <div class="svc-img">
         <img src="images/amenities.jpg" alt="Amenities supply"/>
@@ -152,7 +172,6 @@
       </div>
     </div>
 
-    <!-- SERVICE 5 – Water Supply -->
     <div class="service-card">
       <div class="svc-img">
         <img src="images/water.png" alt="Water supply services"/>
@@ -165,7 +184,6 @@
       </div>
     </div>
 
-    <!-- SERVICE 6 – Mobile Car Wash -->
     <div class="service-card">
       <div class="svc-img">
         <img src="images/car_wash.jpg" alt="Mobile car wash"/>
@@ -175,7 +193,7 @@
         <p>We come to you! Professional vehicle cleaning using eco-friendly products — no queue, no travel, no hassle.</p>
         <br>
         <p>We also provide reliable fleet washing services, including company vehicles and business fleets, ensuring your vehicles stay clean, presentable, and professionally maintained at all times.</p>
-    </div>
+      </div>
     </div>
 
   </div>
@@ -194,12 +212,12 @@
     <div class="about-img-slot fade-up">
       <div class="about-img-box">
         <img src="images/CEO.jpeg" alt="SparkleClean CEO"/>
-        </div>
+      </div>
       <div class="about-badge">
         <strong>2025</strong>
         <span>Est. Zastron</span>
       </div>
-    </div> 
+    </div>
     <div class="fade-up">
       <p class="section-eyebrow">About Us</p>
       <h2>Your Local Cleaning Partner in Xhariep</h2>
@@ -222,8 +240,10 @@
 <div class="cta-band" id="contact">
   <h2>Ready to Keep Your Premises Spotless?</h2>
   <p>Get in touch for a free quote tailored to your organisation's needs.</p>
-  <a href="mailto:mjmorobi@gmail.com" class="btn-white">      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
- Send Us an Email →</a>
+  <a href="mailto:mjmorobi@gmail.com" class="btn-white">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Send Us an Email →
+  </a>
   <div class="cta-contacts">
     <div class="cta-contact">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
@@ -290,6 +310,7 @@
     <p>Zastron · Sterkspruit · Queenstown · Aliwal North · Xhariep</p>
   </div>
 </footer>
+
 <script src="script.js"></script>
 </body>
 </html>
