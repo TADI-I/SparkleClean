@@ -1,5 +1,4 @@
-
-  // ── Modal data ──
+// ── Modal data ──
   const modalData = {
     cleaning: {
       eyebrow: 'Cleaning Materials & Equipment',
@@ -150,3 +149,49 @@
       if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
+
+  // ── Scroll spy: highlight current section in nav ──
+  // Only anchors that point to an in-page id (#services, #about, #contact)
+  // are eligible — "coverage.html" style links are skipped since they're
+  // separate pages and can't be scroll-spied from here.
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const spySectionIds = Array.from(navAnchors)
+    .map(a => a.getAttribute('href').slice(1))
+    .filter(id => id && document.getElementById(id));
+
+  const spySections = spySectionIds
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  function setActiveNavLink(id) {
+    navAnchors.forEach(a => a.classList.remove('active'));
+    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+    if (link) link.classList.add('active');
+  }
+
+  if (spySections.length) {
+    const spyObserver = new IntersectionObserver((entries) => {
+      // Pick the entry closest to the top of the viewport among those intersecting
+      const visible = entries.filter(e => e.isIntersecting);
+      if (visible.length === 0) return;
+
+      visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      setActiveNavLink(visible[0].target.id);
+    }, {
+      rootMargin: '-40% 0px -55% 0px', // narrow band near vertical center of viewport
+      threshold: 0
+    });
+
+    spySections.forEach(sec => spyObserver.observe(sec));
+
+    // Set correct active link immediately on load (before any scrolling)
+    window.addEventListener('DOMContentLoaded', () => {
+      let current = spySections[0];
+      let closest = Infinity;
+      spySections.forEach(sec => {
+        const dist = Math.abs(sec.getBoundingClientRect().top);
+        if (dist < closest) { closest = dist; current = sec; }
+      });
+      if (current) setActiveNavLink(current.id);
+    });
+  }

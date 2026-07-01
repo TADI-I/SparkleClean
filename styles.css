@@ -27,10 +27,19 @@
   .logo-img {
     width: 
     50px; object-fit: contain;
-    
-    
   }
-  
+  .nav-links a.active {
+  color: var(--electric);
+  position: relative;
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 2px;
+  background: var(--electric);
+  border-radius: 2px;
+}
 
   .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
   .nav-links a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.8); transition: color 0.2s; }
@@ -395,7 +404,18 @@
 
 
   /* ── COVERAGE ── */
-  #coverage { background: var(--navy); }
+  #coverage {
+  position: relative;
+  background: var(--navy);
+  background-image:
+    linear-gradient(rgba(13,27,46,0.88), rgba(13,27,46,0.92)),
+    url('images/map.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* use fixed for a parallax feel on desktop, but avoid on mobile */
+  isolation: isolate;
+}
   #coverage h2 { color: var(--white); }
   #coverage .section-eyebrow {
   color: var(--electric);
