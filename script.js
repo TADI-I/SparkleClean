@@ -195,3 +195,7 @@
       if (current) setActiveNavLink(current.id);
     });
   }
+
+
+document.getElementById("copyright").textContent =
+    `© ${new Date().getFullYear()} SparkleClean Enterprises. All rights reserved.`;
